@@ -1,26 +1,13 @@
 import logo from "../images/logo.svg";
 import { pageLinks, socials } from "../data";
+import PageLink from "./PageLink";
+import SocialMediaLink from "./SocialMediaLink";
 
 const Navbar = () => {
-  const navLinks = pageLinks.map((page) => (
-    <li key={page.id}>
-      <a href={page.href} className="nav-link">
-        {page.name}
-      </a>
-    </li>
-  ));
+  const navLinks = pageLinks.map((page) => <PageLink {...page} />);
 
   const socialMediaLinks = socials.map((social) => (
-    <li key={social.id}>
-      <a
-        href={social.href}
-        target="_blank"
-        className="nav-icon"
-        rel="noreferrer"
-      >
-        <i className={`fab fa-${social.name}`}></i>
-      </a>
-    </li>
+    <SocialMediaLink {...social} />
   ));
 
   return (
