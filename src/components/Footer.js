@@ -1,19 +1,13 @@
-import { pageLinks, socials } from "../data";
-import PageLink from "./PageLink";
-import SocialMediaLink from "./SocialMediaLink";
+import PageLinks from "./PageLinks";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const navLinks = pageLinks.map((page) => <PageLink {...page} />);
-
-  const socialMediaLinks = socials.map((social) => (
-    <SocialMediaLink {...social} />
-  ));
   return (
     <footer className="section footer">
-      <ul className="footer-links">{navLinks}</ul>
-      <ul className="footer-icons">{socialMediaLinks}</ul>
+      <PageLinks parentClass="footer-links" childClass="footer-link" />
+      <SocialMediaLinks parentClass="footer-icons" childClass="footer-icon" />
       <p className="copyright">
         copyright &copy; Backroads travel tours company
         <span id="date">{currentYear}</span> all rights reserved
